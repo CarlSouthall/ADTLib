@@ -1,0 +1,84 @@
+#!/usr/bin/env python2.7
+# -*- coding: utf-8 -*-
+"""
+@author: CarlSouthall 
+"""
+
+from __future__ import absolute_import, division, print_function
+import argparse
+import ADTLib as ADT
+from subprocess import call
+
+
+
+p = argparse.ArgumentParser(formatter_class=argparse.RawDescriptionHelpFormatter,description='''
+ADTBDRNN is based on the BDRNN architecture outlined within:
+    
+    Carl Southall, Ryan Stables, Jason Hockman, 
+    Automatic Drum Transcription Using Bi-directional Recurrent Neural Networks, 
+    Proceedings of the 17th International Society for Music Information 
+    Retrieval Conference (ISMIR), 2016.
+       
+   Flag	Name	          Description	Default                                            setting
+   -h	help	          displays help file	                                            n/a
+   -os	output_sort	      defines configuration of the output	                            time
+   -od	output_dir	      location output textfiles are saved	                            current
+   -p	print	          defines whether the output is displayed in the terminal or not	yes
+   -ot	output_text	      defines whether the ouput is stored in a textfile or not	        yes
+   I	input_file_names  single or list of wav file names seperated by spaces	            n/a
+   
+    ''')
+p = argparse.ArgumentParser(prog='ADTBDRNN')
+p.add_argument('I', nargs='*',help='InputFileNames',)
+p.add_argument('-os', nargs=1,help='output_sort', choices=['time', 'instrument'], default='time')
+p.add_argument('-od', nargs=1,help='output_dir', default='current')
+p.add_argument('-p', nargs=1,help='print', default='yes',choices=['yes', 'no'])
+p.add_argument('-ot', nargs=1,help='output_text', choices=['yes','no'], default='yes')
+args=p.parse_args()
+TrackNames=args.I
+suffix='.ADT.txt'
+
+if args.os!='time':
+   args.os=args.os[0]
+if args.od!='current':
+    args.od=args.od[0]
+if args.p!='yes':
+    args.p=args.p[0]
+if args.ot!='yes':
+    args.ot=args.ot[0]
+    
+out=ADT.models.ADTBDRNN(TrackNames, out_sort=args.os, out_text=args.ot, savedir=args.od)
+
+if args.p=='yes' and args.ot=='no':
+    print(out)
+elif args.p=='yes' and args.ot=='yes':
+    for i in xrange(len(TrackNames)):
+        name=TrackNames[i].split('.wav')
+        TrackName=name[0]
+        
+        if args.od=='current':
+            d=TrackName+suffix
+            if i==0:
+                print()
+            print ("Track"+str(i))
+            print(TrackNames[i])
+            print()
+            call(["cat", d])
+            if i < len(TrackNames)-1:
+                print()
+        else: 
+            d=savedir+TrackName+suffix
+            if i==0:
+                print()
+            print ("Track"+str(i))
+            print(TrackNames[i])
+            print()
+            call(["less", d])
+            if i < len(TrackNames)-1:
+                print()
+
+    
+    
+    
+    
+    
