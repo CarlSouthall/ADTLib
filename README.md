@@ -58,7 +58,7 @@ See the [usage](https://github.com/CarlSouthall/ADTLib/blob/master/usage.md) pag
 ## References
 
 
-| **[1]** |                  **[Carl Southall, Ryan Stables, Jason Hockman, Automatic Drum Transcription Using Bi-directional Recurrent                    Neural  Networks, Proceedings of the 17th International Society for Music Information Retrieval Conference (ISMIR), 2016.](https://wp.nyu.edu/ismir2016/wp-content/uploads/sites/2294/2016/07/217_Paper.pdf)**|
+| **[1]** |                  **[Southall, C., R. Stables, J. Hockman, Automatic Drum Transcription Using Bi-directional Recurrent                    Neural  Networks, Proceedings of the 17th International Society for Music Information Retrieval Conference (ISMIR), 2016.](https://wp.nyu.edu/ismir2016/wp-content/uploads/sites/2294/2016/07/217_Paper.pdf)**|
 | :---- | :--- |
 
 ##Help
