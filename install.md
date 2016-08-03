@@ -4,17 +4,9 @@ This page contains information regarding installing ADTLib. It is suggested to i
 
      easy_install pip
 
-Then install the automated drum transcription libarary using the following
-
-     pip install ADTLib
-
-To update the libary use
-
-     pip install --upgrade ADTlib
-     
-This should install all of the extra required packages. If errors occur, try installing each package one by one as demonstrated below.
-
 #### Required packages.
+
+ADTLib requires the following packages to already be installed.
 
 • [numpy](https://www.numpy.org)   
 • [scipy](https://www.scipy.org)  
@@ -22,37 +14,23 @@ This should install all of the extra required packages. If errors occur, try ins
 • [madmom](https://github.com/CPJKU/madmom)  
 • [tensorflow](https://www.tensorflow.org/)
 
-To install numpy
+If these are already installed install ADTLib using the following
 
-     pip install numpy
+     pip install ADTLib
 
-To install scipy
-     
-     pip install scipy
-     
-To install cython
+To update the libary use
 
-     pip install cython
-     
-To install madmom
-     
-     pip install madmom
-     
-madmom requires [nose](http://nose.readthedocs.io/en/latest/) in addition to the above packages, if this does not automatically install with madmom use.
-
-     pip install nose
-     
-Although you can use
-
-     pip install tensorflow 
-     
-to install tensorflow, problems sometimes occur. It is suggested to install tensorflow using the instructions on the tensorflow github https://github.com/tensorflow/tensorflow/blob/master/tensorflow/g3doc/get_started/os_setup.md 
-
-Once you have installed all of those dependencies you can install ADTLib using pip as demonstrated at the top of this page.
-     
+     pip install --upgrade ADTlib
      
 
-     
-     
+If you do not already have the required packages the easiest way to install them all is to first install tensorflow using the instructions on the tensorflow github:
+
+https://github.com/tensorflow/tensorflow/blob/master/tensorflow/g3doc/get_started/os_setup.md 
+
+Then install ADTLib using the command above and all other dependencies should install.
+
+If problems occur try installing each package one by one using:
+
+	pip install <package_name>
 
 
