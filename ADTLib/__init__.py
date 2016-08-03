@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-Created on Wed Jul 20 19:18:52 2016
-
 @author: CarlSouthall
+
 """
 
 
