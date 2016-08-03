@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 """
 @author: CarlSouthall
+ADTBDRNN
+
 """
 
 
@@ -16,7 +18,17 @@ import ADTLib.nn as ADTnn
 from ADTLib.utils import Wavread, MeanPP, arrange_output, write_text
 
 def ADTBDRNN(TrackNames, out_sort='time',ret='yes', out_text='no', savedir='current',close_error=0.05,lambd=[9.7,9.9,4.9]):
+ 
+  ''' Bi-directional neural network algorithm outlined in:
     
+    Southall, C., R. Stables, J. Hockman, Automatic Drum Transcription Using 
+    Bi-directional Recurrent Neural Networks, 
+    Proceedings of the 17th International Society for Music Information 
+    Retrieval Conference (ISMIR), 2016.
+    
+    For usage help see github.com/CarlSouthall/ADTLib/usage.md
+           
+    '''   
     Time_Steps=1
     WL=2048
     HS=512

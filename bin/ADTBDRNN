@@ -2,6 +2,8 @@
 # -*- coding: utf-8 -*-
 """
 @author: CarlSouthall 
+ADTBDRNN
+
 """
 
 from __future__ import absolute_import, division, print_function
@@ -12,12 +14,12 @@ from subprocess import call
 
 
 p = argparse.ArgumentParser(formatter_class=argparse.RawDescriptionHelpFormatter,description='''
-ADTBDRNN is based on the BDRNN architecture outlined within:
-    
-    Carl Southall, Ryan Stables, Jason Hockman, 
-    Automatic Drum Transcription Using Bi-directional Recurrent Neural Networks, 
+ADTBDRNN is based on the bi-directional neural network architecture outlined within:
+        
+    Southall, C., R. Stables, J. Hockman, Automatic Drum Transcription Using 
+    Bi-directional Recurrent Neural Networks, 
     Proceedings of the 17th International Society for Music Information 
-    Retrieval Conference (ISMIR), 2016.
+    Retrieval Conference (ISMIR), 2016.              
        
    Flag	Name	          Description	Default                                            setting
    -h	help	          displays help file	                                            n/a
@@ -26,7 +28,8 @@ ADTBDRNN is based on the BDRNN architecture outlined within:
    -p	print	          defines whether the output is displayed in the terminal or not	yes
    -ot	output_text	      defines whether the ouput is stored in a textfile or not	        yes
    I	input_file_names  single or list of wav file names seperated by spaces	            n/a
-   
+ 
+  For further usage help see github.com/CarlSouthall/ADTLib/usage.md  
     ''')
 p = argparse.ArgumentParser(prog='ADTBDRNN')
 p.add_argument('I', nargs='*',help='InputFileNames',)
