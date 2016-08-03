@@ -1,6 +1,6 @@
 # Automatic Drum Transcription Library (ADTLib)
 
-The automatic drum transcription (ADT) libarary contains open source ADT algorithms to aid other researchers in areas of music information retrieval (MIR).
+The automatic drum transcription (ADT) library contains open source ADT algorithms to aid other researchers in areas of music information retrieval (MIR).
 
 ## License
 
