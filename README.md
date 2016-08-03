@@ -35,7 +35,7 @@ The algorithms that are currently contained within the libary are:
 
 ## Usage
 
-Algorithms contained within the toolbox are both available as functions for use within python and as command line executable programmes.
+Algorithms contained within the library are both available as functions for use within python and as command line executable programmes.
 
 ###Examples 
 
