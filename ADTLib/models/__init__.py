@@ -17,6 +17,8 @@ import inspect
 import ADTLib.nn as ADTnn
 from ADTLib.utils import Wavread, MeanPP, arrange_output, write_text
 
+
+
 def ADTBDRNN(TrackNames, out_sort='time',ret='yes', out_text='no', savedir='current',close_error=0.05,lambd=[9.7,9.9,4.9]):
  
     ''' Bi-directional neural network algorithm outlined in:
@@ -97,5 +99,4 @@ def ADTBDRNN(TrackNames, out_sort='time',ret='yes', out_text='no', savedir='curr
         
     if ret=='yes':
         return P
-        
         

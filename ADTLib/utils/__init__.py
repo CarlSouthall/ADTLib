@@ -33,18 +33,26 @@ def Wavread(TrackName):
 def arrange_output(Inputs,output_sort='time'):
     
     Names=['BD','SD','HH']
+   
     Out=list(np.zeros(len(Inputs)))
+    Out1=list(np.zeros(len(Inputs)))
     for i in xrange(len(Inputs)): 
+   
         Out[i]=list(np.zeros(len(Inputs[i])))
+        Out1[i]=list(np.zeros((1,2)))
         for j in xrange(len(Inputs[i])):    
             Out[i][j]=list(np.zeros((len(Inputs[i][j]))))
             for k in xrange(len(Inputs[i][j])):
                 Out[i][j][k]=list(np.zeros(2))
                 Out[i][j][k][0]=Inputs[i][j][k]
                 Out[i][j][k][1]=Names[j]
-                
-        Out[i]=np.concatenate([Out[i][0],Out[i][1],Out[i][2]],axis=0)
-        
+    
+    
+            if len(Out[i][j])>1:
+                Out1[i]=np.concatenate([Out1[i],Out[i][j]],axis=0)
+            
+        Out[i]=Out1[i][1:]
+               
         if output_sort=='time':
             Out1=np.array(Out[i][:,0],dtype=float)
             Out[i][:,0]=np.array(np.sort(Out1),dtype=str)
@@ -53,6 +61,7 @@ def arrange_output(Inputs,output_sort='time'):
             for j in xrange(len(indexs)):           
                 Out[i][j,1]=out_names[indexs[j]]
         
+    
     return Out
     
 def write_text(X,names,suffix='.ADT.txt',save_dir='current'):
