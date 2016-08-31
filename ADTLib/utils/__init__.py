@@ -54,9 +54,9 @@ def arrange_output(Inputs,output_sort='time'):
         Out[i]=Out1[i][1:]
                
         if output_sort=='time':
-            Out1=np.array(Out[i][:,0],dtype=float)
-            Out[i][:,0]=np.array(np.sort(Out1),dtype=str)
-            indexs=np.argsort(Out1)    
+            Out1[i]=np.array(Out[i][:,0],dtype=float)
+            Out[i][:,0]=np.array(np.sort(Out1[i]),dtype=str)
+            indexs=np.argsort(Out1[i])    
             out_names=list(Out[i][:,1])
             for j in xrange(len(indexs)):           
                 Out[i][j,1]=out_names[indexs[j]]
