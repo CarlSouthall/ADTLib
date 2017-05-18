@@ -6,7 +6,7 @@ ADTBDRNN
 """
 
 
-
+from __future__ import absolute_import, division, print_function
 
 import madmom
 import tensorflow as tf
@@ -37,24 +37,24 @@ def ADTBDRNN(TrackNames, out_sort='time',ret='yes', out_text='no', savedir='curr
     names=list(np.zeros(len(TrackNames)))
     
     Track=list(np.zeros(len(TrackNames)))
-    for i in range(len(TrackNames)):
+    for i in xrange(len(TrackNames)):
         Track[i]=Wavread(TrackNames[i])
         name=TrackNames[i].split('.wav')
         names[i]=name[0]
             
     Frames=list(np.zeros(len(Track)))
     Train=list(np.zeros(len(Track)))
-    for j in range(len(Track)):
+    for j in xrange(len(Track)):
         NFrames=int(np.ceil(len(Track[j])/float(HS)))
         Frames[j]=np.zeros((NFrames,WL))
-        for i in range(NFrames):
+        for i in xrange(NFrames):
             Frames[j][i]=np.squeeze(madmom.audio.signal.signal_frame(Track[j],i,WL,HS,origin=-HS))
             
         Spectrogram=madmom.audio.spectrogram.spec(madmom.audio.stft.stft(Frames[j],np.hanning(WL), fft_size=WL))
         Train[j]=np.zeros((len(Spectrogram),Time_Steps,len(Spectrogram[0])))
         
-        for i in range(len(Spectrogram)):
-            for k in range(Time_Steps):
+        for i in xrange(len(Spectrogram)):
+            for k in xrange(Time_Steps):
                 if i-k >= 0:
                     Train[j][i][Time_Steps-k-1]=Spectrogram[i-k,:]
                 
@@ -68,17 +68,17 @@ def ADTBDRNN(TrackNames, out_sort='time',ret='yes', out_text='no', savedir='curr
    
     AF=list(np.zeros(len(Track)))
     P=list(np.zeros(len(Track)))
-    for j in range(len(Track)):
+    for j in xrange(len(Track)):
         AF[j]=list([Kout[j][:,0],Sout[j][:,0],Hout[j][:,0]])
         P[j]=list(np.zeros(3))
-        for i in range(len(AF[j])):
+        for i in xrange(len(AF[j])):
             P[j][i]=MeanPP(AF[j][i],lambd[i])
             x=np.sort(P[j][i])
             peak=[]
             if len(x) > 0:
                 peak=np.append(peak,x[0])
                 
-            for k in range(len(x)-1):
+            for k in xrange(len(x)-1):
                 if (x[k+1]-peak[len(peak)-1]) >= close_error:
                     peak=np.append(peak,x[k+1])
                     
@@ -88,7 +88,7 @@ def ADTBDRNN(TrackNames, out_sort='time',ret='yes', out_text='no', savedir='curr
     
     if out_text == 'yes':
        write_text(P,names,save_dir=savedir)
-    for i in range(len(P)):
+    for i in xrange(len(P)):
             Pnew=list(np.zeros(2))
             Pnew[0]=np.array(P[i][:,0],dtype=float)
             Pnew[1]=np.array(P[i][:,1],dtype=str)

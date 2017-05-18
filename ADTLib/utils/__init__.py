@@ -2,7 +2,7 @@
 """
 @author: CarlSouthall
 """
-
+from __future__ import absolute_import, division, print_function
 import scipy.io.wavfile as wav
 import numpy as np
 import os
@@ -13,7 +13,7 @@ def MeanPP(Track,Lambda):
     m=np.mean(Track)*Lambda
     onsets=[]
     Track=np.append(Track,0)
-    for i in range(len(Track)):
+    for i in xrange(len(Track)):
         if Track[i]>Track[i-1] and Track[i]>Track[i+1] and Track[i]> m:
             onsets=np.append(onsets,i)
 
@@ -36,13 +36,13 @@ def arrange_output(Inputs,output_sort='time'):
    
     Out=list(np.zeros(len(Inputs)))
     Out1=list(np.zeros(len(Inputs)))
-    for i in range(len(Inputs)): 
+    for i in xrange(len(Inputs)): 
    
         Out[i]=list(np.zeros(len(Inputs[i])))
         Out1[i]=list(np.zeros((1,2)))
-        for j in range(len(Inputs[i])):    
+        for j in xrange(len(Inputs[i])):    
             Out[i][j]=list(np.zeros((len(Inputs[i][j]))))
-            for k in range(len(Inputs[i][j])):
+            for k in xrange(len(Inputs[i][j])):
                 Out[i][j][k]=list(np.zeros(2))
                 Out[i][j][k][0]=Inputs[i][j][k]
                 Out[i][j][k][1]=Names[j]
@@ -58,7 +58,7 @@ def arrange_output(Inputs,output_sort='time'):
             Out[i][:,0]=np.array(np.sort(Out1[i]),dtype=str)
             indexs=np.argsort(Out1[i])    
             out_names=list(Out[i][:,1])
-            for j in range(len(indexs)):           
+            for j in xrange(len(indexs)):           
                 Out[i][j,1]=out_names[indexs[j]]
         
     
@@ -70,9 +70,9 @@ def write_text(X,names,suffix='.ADT.txt',save_dir='current'):
         current_dir=os.getcwd()
         os.chdir(save_dir)
         
-    for i in range(len(names)):
+    for i in xrange(len(names)):
         file = open(names[i]+suffix, "w")       
-        for j in range(len(X[i])):
+        for j in xrange(len(X[i])):
             X[i][j][0]=X[i][j][0][0:8]
             item="    ".join(X[i][j])
             file.write("%s\n" % item)
