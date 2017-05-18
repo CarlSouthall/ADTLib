@@ -2,7 +2,7 @@
 """
 @author: CarlSouthall
 """
-
+from __future__ import absolute_import, division, print_function
 import numpy as np
 import tensorflow as tf
 from tensorflow.python.ops import rnn, rnn_cell
@@ -11,7 +11,7 @@ def BDRNNRestoreAll(X, RestoreFileName, num_layers=3,Truncated=1,n_hidden=50,n_c
     
     tf.reset_default_graph()
     batch_size=0;
-    for i in range(len(X)):
+    for i in xrange(len(X)):
         if len(X[i]) > batch_size:
             batch_size=len(X[i])
     
@@ -57,7 +57,7 @@ def BDRNNRestoreAll(X, RestoreFileName, num_layers=3,Truncated=1,n_hidden=50,n_c
         
         sess.run(init)
         saver.restore(sess,RestoreFileName) 
-        for i in range (len(Test)):
+        for i in xrange (len(Test)):
             test_len = len(Test[i])
             if test_len != batch_size:
                 e=np.zeros((batch_size-test_len,1,len(Test[i][0,0])))
