@@ -34,7 +34,7 @@ Perform ADT on multiple audio files. Create a drum tabulature and saves it to th
 
 ```Python
 
-Onsets=ADT(filenames, context='DrumSolo',text='yes',tab='yes',save_dir=None):
+Onsets=ADT(filenames, context='DrumSolo',text='yes',tab='yes',save_dir=None)
 
 ```
 | Name           |   Description                                                       | Default setting  |
