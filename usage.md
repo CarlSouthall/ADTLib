@@ -12,20 +12,23 @@ Output: kick, snare, hihat onsets in seconds.
 
 ###Command line
 
-    ADTBDRNN [-h] [-os {time,instrument}] [-od OD] [-p {yes,no}] [-ot {yes,no}] [I [I ...]]   
+    ADT [-h] [-od {None,dir}] [-o {yes,no}] [-ot {yes,no}] [I [I ...]]   
     
 | Flag   | Name           |   Description                                                       | Default setting  |
 | ----  |  -------  | ----- |   ------   |   
 | -h     |  help             |   displays help file                                              | n/a     |                                           
-| -os    |   output_sort     |   defines configuration of the output                            | time |
-| -od    |   output_dir      |   location output textfiles are saved                            | current| 
-| -p     |   print           |   defines whether the output is displayed in the terminal or not | yes|
-| -ot    |   output_text     |   defines whether the ouput is stored in a textfile or not       | yes|
+| -od    |   output_dir      |   location output textfiles are saved                            | None | 
+| -o      | output_text     | defines whether the output is stored in a textfile or not    | yes |
+| -ot    |   output_tab     |   defines whether a tabulature is created and saved to a pdf       | yes|
 | I      |   input_file_names|   single or list of wav file names seperated by spaces                     |  n/a |
 
 #####Examples
 
-    ADTBDRNN DrumFile.wav
+    ADT Drum.wav
+    
+    ADT Drum.wav Drum1.wav Drum2.wav
+    
+    ADT -od ~/Desktop -o no -ot yes Drum.wav Drum1.wav Drum2.wav
 
   Output ordered by time printed to a text file in current directory and printed in terminal
   
