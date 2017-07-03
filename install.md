@@ -10,7 +10,6 @@ ADTLib requires the following packages to already be installed:
 
 • [numpy](https://www.numpy.org)   
 • [scipy](https://www.scipy.org)  
-• [cython](https://www.cython.org)   
 • [madmom](https://github.com/CPJKU/madmom)  
 • [tensorflow](https://www.tensorflow.org/)
 
