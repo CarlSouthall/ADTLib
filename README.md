@@ -11,19 +11,27 @@ This library is published under the BSD license which allows redistribution and 
 #### Required Packages
 
 • [numpy](https://www.numpy.org)   
-• [scipy](https://www.scipy.org)   
+• [scipy](https://www.scipy.org)  
+• [cython](https://www.cython.org)  
 • [madmom](https://github.com/CPJKU/madmom)  
 • [tensorflow](https://www.tensorflow.org/)
 
-The easiest and suggested method to install the library is to use pip.
+The easiest and suggested method to install the libary is to use pip.
 
      pip install ADTLib
 
-To update the library use
+To update the libary use
 
      pip install --upgrade ADTlib
      
-For further install information see the [install](https://github.com/CarlSouthall/ADTLib/blob/master/install.md) page.
+For futher install information see the [install](https://github.com/CarlSouthall/ADTLib/blob/master/install.md) page.
+
+
+## Algorithms
+
+The algorithms that are currently contained within the libary are:
+
+• ADTBDRNN: Bi-directional architecture outlined in [1]
 
 ## Usage
 
@@ -33,16 +41,16 @@ Algorithms contained within the library are both available as functions for use 
 
 #### Command line 
 
-    ADT DrumFile1.wav DrumFile2.wav
+    ADTBDRNN DrumFile1.wav DrumFile2.wav
 
 
 #### Python function
 
 ```Python
-from ADTLib import ADT
+from ADTLib.models import ADTBDRNN
 
 TrackNames=['DrumFile1.wav','DrumFile2.wav']
-out=ADT(TrackNames)
+out=ADTBDRNN(TrackNames)
 ```
 
 See the [usage](https://github.com/CarlSouthall/ADTLib/blob/master/usage.md) page for more information.
