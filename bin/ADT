@@ -1,0 +1,38 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+"""
+@author: CarlSouthall 
+ADT
+
+"""
+from __future__ import absolute_import, division, print_function
+import argparse
+import ADTLib as ADT
+
+p = argparse.ArgumentParser(formatter_class=argparse.RawDescriptionHelpFormatter,description='''
+   Flag	Name	          Description	Default                                         setting
+   -h	help	          displays help file	                                            n/a
+   -od	output_dir	      location output files are saved	                            current
+   -o	output_text	      defines whether the output is stored in a textfile or not	        yes
+   -ot  output_tab        defines whether a tabulature is created and saved to a pdf        yes
+   I	input_file_names  single or list of wav file names seperated by spaces	            n/a
+ 
+  For further usage help see github.com/CarlSouthall/ADTLib/usage.md  
+    ''')
+p = argparse.ArgumentParser(prog='ADT')
+p.add_argument('I', nargs='*',help='InputFileNames')
+p.add_argument('-od', nargs=1,help='output_dir', default=None)
+p.add_argument('-o', nargs=1,help='output_text', choices=['yes','no'], default='yes')
+p.add_argument('-ot', nargs=1,help='output_tab', choices=['yes','no'], default='yes')
+args=p.parse_args()
+TrackNames=args.I
+
+if args.od!=None:
+    args.od=args.od[0]
+if args.o!='yes':
+    args.o=args.o[0]
+if args.ot!='yes':
+    args.ot=args.ot[0]
+    
+out=ADT.ADT(TrackNames, text=args.o, tab=args.ot, save_dir=args.od)
+
