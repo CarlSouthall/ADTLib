@@ -2,13 +2,13 @@ from distutils.core import setup
 from setuptools import find_packages
 import glob
 
-package_data = ['/files/*'] 
+package_data = ['files/*'] 
 scripts = glob.glob('bin/*')               
 
 setup(
   name = 'ADTLib',
   packages=find_packages(exclude=[]), 
-  version = '2.0',
+  version = '2.0.1',
   description = 'Automated Drum Trancription Library',
   author = 'Carl Southall',
   author_email = 'carl.southall@bcu.ac.uk',
@@ -24,7 +24,7 @@ setup(
                  'Topic :: Multimedia :: Sound/Audio :: Analysis',
                  'Topic :: Scientific/Engineering :: Artificial Intelligence'],
    
-    install_requires=['numpy','scipy','cython','madmom'],
+    install_requires=['numpy','scipy','cython','madmom','fpdf'],
     package_data={'ADTLib': package_data},
      
 )
