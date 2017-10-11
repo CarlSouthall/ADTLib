@@ -2,16 +2,16 @@ from distutils.core import setup
 from setuptools import find_packages
 import glob
 
-package_data = ['nn/NNFiles/*'] 
+package_data = ['/files/*'] 
 scripts = glob.glob('bin/*')               
 
 setup(
   name = 'ADTLib',
   packages=find_packages(exclude=[]), 
-  version = '0.8',
+  version = '2.0',
   description = 'Automated Drum Trancription Library',
   author = 'Carl Southall',
-  author_email = 'c-southall@live.co.uk',
+  author_email = 'carl.southall@bcu.ac.uk',
   license='BSD',
   url = 'https://github.com/CarlSouthall/ADTLib', 
   download_url = 'https://github.com/CarlSouthall/ADTLib', 
