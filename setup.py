@@ -2,7 +2,7 @@ from distutils.core import setup
 from setuptools import find_packages
 import glob
 
-package_data = ['files/*'] 
+package_data = ['ADTLib/files/*'] 
 scripts = glob.glob('bin/*')               
 
 setup(
