@@ -330,7 +330,7 @@ class SA:
          self.locations=range(size)
          self.dif=size%self.batch_size
          if self.dif>0:
-             for i in xrange(self.batch_size-self.dif):
+             for i in range(self.batch_size-self.dif):
                  self.locations=np.append(self.locations,0)
          self.location_new=np.reshape(self.locations,[-1,self.batch_size])     
          return self.location_new
@@ -340,11 +340,11 @@ class SA:
          with tf.Session() as sess:
              self.saver.restore(sess, self.save_location+'/'+self.filename)
              self.test_out=[];
-             for i in xrange(len(data)):
+             for i in range(len(data)):
                  self.test_len=len(data[i])
                  self.test_locations=self.locations_create(self.test_len)
-                 for k in xrange(len(self.test_locations)):
-                    for j in xrange(self.batch_size):
+                 for k in range(len(self.test_locations)):
+                    for j in range(self.batch_size):
                         self.batch[j]=data[i][self.test_locations[k,j]]
                     if k == 0:
                         self.test_out.append(sess.run(self.pred, feed_dict={self.x_ph: np.expand_dims(self.batch,0),self.dropout_ph:1}))                                    
