@@ -57,14 +57,14 @@ def load_pp_param(save_path):
     
 
 
-def tab_create(Onsets,Filename_):
+def tab_create(Onsets,Filename_,save_dir_):
     quantisation_per_beat=4
     bars_per_line=4
     notation=['x','o','o']
     pre_trackname=Filename_.split('/')
     TrackName=pre_trackname[len(pre_trackname)-1].split('.')[0]+' Drum Tab'
-    
-    subprocess.call(["DBNDownBeatTracker","single","-o","DB.txt",Filename_])
+    wav=Filename_.split('.')[0]+'.wav'
+    subprocess.call(["DBNDownBeatTracker","single","-o","DB.txt",wav])
 
     DBFile=open("DB.txt")
     DBFile=DBFile.read().split('\n')
@@ -147,9 +147,12 @@ def tab_create(Onsets,Filename_):
         for i in range(len(lines)):
             lines_new.append([])
             for j in range(len(lines[i])):
-                lines_new[i].append(''.join(lines[i][j]))        
-        
-        
+                lines_new[i].append(''.join(lines[i][j]))  
+                
+        os.remove("DB.txt")
+        if save_dir_!=None:
+            current_dir=os.getcwd()
+            os.chdir(save_dir_)
         pdf = FPDF(format='A4')
         pdf.add_page()
         pdf.set_font("Courier", size=12)
@@ -161,11 +164,26 @@ def tab_create(Onsets,Filename_):
                 pdf.cell(0,3,txt=lines_new[i][j],ln=1,align="C")
             pdf.cell(0,5,txt='',ln=1,align="C")
         pdf.output(pre_trackname[len(pre_trackname)-1].split('.')[0]+'_drumtab.pdf')
+        if save_dir_!=None:
+            os.chdir(current_dir)
         
         
-        os.remove("DB.txt")
     else: 
         print('Error: No beat detected')
+
+def tab_from_text(filename,save_dir):
+    y=open(filename)
+    lines=y.readlines()
+    Peaks=[[],[],[]]
+    ins=['KD','SD','HH']
+    for i in range(len(lines)):
+        lines[i]=lines[i].strip().split(' \t ')
+        for j in range(len(ins)):
+            if lines[i][1]==ins[j]:
+                Peaks[j]=np.append(Peaks[j],float(lines[i][0]))
+    
+    
+    tab_create([Peaks[2],Peaks[1],Peaks[0]],filename,save_dir)
 
 def sort_ascending(x):
     in_re=[]
@@ -180,11 +198,16 @@ def sort_ascending(x):
     out_re_final=np.squeeze(np.array(out_re_final))
     return out_re_final
 
-def print_to_file(onsets,Filename):
+def print_to_file(onsets,Filename,save_dir_):
+    if save_dir_!=None:
+        current_dir=os.getcwd()
+        os.chdir(save_dir_)
     pre_trackname=Filename.split('/')
     f = open(pre_trackname[len(pre_trackname)-1].split('.')[0]+'.ADT.txt', "w")
     for item,item2 in onsets:
         f.write("%.4f \t %s \n" % (float(item), item2))
+    if save_dir_!=None:
+        os.chdir(current_dir)
 
     f.close()
     

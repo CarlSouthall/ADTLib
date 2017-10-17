@@ -21,13 +21,11 @@ def ADT(filenames,text='yes',tab='yes',save_dir=None):
         for j in range(len(AFs)):
                 Peaks.append(utils.meanPPmm(AFs[j][:,0],PP[j,0],PP[j,1],PP[j,2]))
         sorted_p=utils.sort_ascending(Peaks)
-        if save_dir!=None:
-            os.chdir(save_dir)
         if text=='yes':
-            utils.print_to_file(sorted_p,k)
+            utils.print_to_file(sorted_p,k,save_dir)
                      
         if tab=='yes':
-            utils.tab_create([Peaks[2],Peaks[1],Peaks[0]],k)
+            utils.tab_create([Peaks[2],Peaks[1],Peaks[0]],k,save_dir)
             
         Onsets.append({'Kick':Peaks[0],'Snare':Peaks[1],'Hihat':Peaks[2]})
     return Onsets
