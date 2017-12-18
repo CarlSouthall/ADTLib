@@ -52,13 +52,13 @@ See the [usage](https://github.com/CarlSouthall/ADTLibNew/blob/master/usage.md) 
 ## References
 
 
-| **[1]** |                  **[Southall, C., R. Stables, J. Hockman, Automatic Drum Transcription Using Bi-directional Recurrent                    Neural  Networks, Proceedings of the 17th International Society for Music Information Retrieval Conference (ISMIR), 2016.](https://wp.nyu.edu/ismir2016/wp-content/uploads/sites/2294/2016/07/217_Paper.pdf)**|
+| **[1]** |                  **[Southall, C., R. Stables, J. Hockman, Automatic Drum Transcription Using Bi-directional Recurrent                    Neural  Networks, Proceedings of the 17th International Society for Music Information Retrieval Conference (ISMIR), 2016.](https://carlsouthall.files.wordpress.com/2017/12/ismiradt2016.pdf)**|
 | :---- | :--- |
 
-| **[2]** |                  **[Southall, C., R. Stables, J. Hockman, Automatic Drum Transcription For Polyphonic Recordings Using Soft Attention Mechanisms and Convolutional Neural Networks, Proceedings of the 18th International Society for Music Information Retrieval Conference (ISMIR), 2017.](http://www.ryanstables.co.uk/docs/ISMIR2017CamReady.pdf)**|
+| **[2]** |                  **[Southall, C., R. Stables, J. Hockman, Automatic Drum Transcription For Polyphonic Recordings Using Soft Attention Mechanisms and Convolutional Neural Networks, Proceedings of the 18th International Society for Music Information Retrieval Conference (ISMIR), 2017.](https://carlsouthall.files.wordpress.com/2017/12/ismir2017adt.pdf)**|
 | :---- | :--- |
 
-| **[3]** |                  **[Southall, C., N. Jillings, R. Stables, J. Hockman, ADTWeb: An Open Source Browser Based Automatic Drum Transcription System. Proceedings of the 18th International Society for Music Information Retrieval Conference (ISMIR), 2017.]
+| **[3]** |                  **[Southall, C., N. Jillings, R. Stables, J. Hockman, ADTWeb: An Open Source Browser Based Automatic Drum Transcription System. Proceedings of the 18th International Society for Music Information Retrieval Conference (ISMIR), 2017.](https://carlsouthall.files.wordpress.com/2017/12/ismir2017adtweb.pdf)**|
 | :---- | :--- |
 
 ## Help
