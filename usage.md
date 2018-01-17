@@ -71,7 +71,7 @@ Perform ADT on multiple audio files from different directories. Creates a drum t
 ```Python
 from ADTLib import ADTDT
 
-Onsets=ADT(['Drum.wav'], output_act='yes')
+Onsets, ActivationFunctions=ADT(['Drum.wav'], output_act='yes')
 ```    
 Perform ADT on a single audio file. Saves onset times to a .txt file in the current directory. Creates a drum tabulature and saves it as a pdf in the current directory. Returns onset times per instrument and activation functions per track, per instrument.
 
