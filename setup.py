@@ -8,7 +8,7 @@ scripts = glob.glob('bin/*')
 setup(
   name = 'ADTLib',
   packages=find_packages(exclude=[]), 
-  version = '2.0.2',
+  version = '2.1.2',
   description = 'Automated Drum Trancription Library',
   author = 'Carl Southall',
   author_email = 'carl.southall@bcu.ac.uk',

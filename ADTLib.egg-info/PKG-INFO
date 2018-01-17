@@ -1,12 +1,13 @@
 Metadata-Version: 1.1
 Name: ADTLib
-Version: 0.8
+Version: 2.1.2
 Summary: Automated Drum Trancription Library
 Home-page: https://github.com/CarlSouthall/ADTLib
 Author: Carl Southall
-Author-email: c-southall@live.co.uk
+Author-email: carl.southall@bcu.ac.uk
 License: BSD
 Download-URL: https://github.com/CarlSouthall/ADTLib
+Description-Content-Type: UNKNOWN
 Description: UNKNOWN
 Keywords: Drums,Transcription,Automated
 Platform: UNKNOWN

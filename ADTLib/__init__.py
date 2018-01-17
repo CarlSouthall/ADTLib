@@ -10,9 +10,11 @@ Created on Fri May 26 15:10:50 2017
 from . import utils
 import os
 
-def ADT(filenames,text='yes',tab='yes',save_dir=None):
+def ADT(filenames,text='yes',tab='yes',save_dir=None,output_act='no'):
     location=utils.location_extract()
     Onsets=[]
+    if output_act=='yes':
+        acts=[]
     for k in filenames:
         specs=utils.spec(k)
         AFs=utils.system_restore(specs,location)
@@ -28,8 +30,12 @@ def ADT(filenames,text='yes',tab='yes',save_dir=None):
             utils.tab_create([Peaks[2],Peaks[1],Peaks[0]],k,save_dir)
             
         Onsets.append({'Kick':Peaks[0],'Snare':Peaks[1],'Hihat':Peaks[2]})
-    return Onsets
-    
+        if output_act=='yes':
+            acts.append(AFs)
+    if output_act=='yes':        
+        return Onsets,acts
+    else:
+        return Onsets
             
         
     

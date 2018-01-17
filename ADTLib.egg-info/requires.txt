@@ -2,3 +2,4 @@ numpy
 scipy
 cython
 madmom
+fpdf

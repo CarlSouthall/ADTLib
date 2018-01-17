@@ -34,7 +34,7 @@ Perform ADT on multiple audio files from different directories. Creates a drum t
 
 ```Python
 
-Onsets=ADT(filenames, text='yes', tab='yes', save_dir=None)
+Onsets=ADT(filenames, text='yes', tab='yes', save_dir=None, output_act='no')
 
 ```
 | Name           |   Description                                                       | Default setting  |
@@ -43,6 +43,7 @@ Onsets=ADT(filenames, text='yes', tab='yes', save_dir=None)
 |   text     |   defines whether the output is stored in a .txt file or not ('yes','no' )                           | 'yes' |
 |   tab  |   defines whether a tabulature is created and saved to a pdf ('yes','no' )                           | 'yes' |
 |   save_dir      |   location output .txt files are saved ('None' (saves in current dir), dir)                     | None | 
+|   output_act    |   defines whether the activation functions are also output ('yes','no')                     | 'no' | 
 
 ##### Examples
 
@@ -66,5 +67,13 @@ from ADTLib import ADT
 Onsets=ADT('~/Drum.wav', '~/Desktop/Drum1.wav', text='no', save_dir='~/Desktop')
 ```    
 Perform ADT on multiple audio files from different directories. Creates a drum tabulature but not a .txt file and saves it to the desktop. Returns onset times per instrument.
+
+```Python
+from ADTLib import ADTDT
+
+Onsets=ADT(['Drum.wav'], output_act='yes')
+```    
+Perform ADT on a single audio file. Saves onset times to a .txt file in the current directory. Creates a drum tabulature and saves it as a pdf in the current directory. Returns onset times per instrument and activation functions per track, per instrument.
+
 
 
